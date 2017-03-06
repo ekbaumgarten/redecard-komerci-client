@@ -36,7 +36,7 @@ class KomerciSoapClient extends \SoapClient
         $request = preg_replace('/SOAP\-ENV/', 'soap', $request);
         $request = preg_replace('/<ns1:(\w+)/', '<$1', $request);
         $request = preg_replace('/<\/ns1:(\w+)/', '</$1', $request);
-        $request = preg_replace('/<' . $actionName . '/', '<' . $actionName . ' xmlns="http://ecommerce.redecard.com.br"', $request);
+        $request = preg_replace('/<' . $actionName . '/', '<' . $actionName . ' xmlns="http://ecommerce.userede.com.br"', $request);
 
         $this->request = $request;
         return parent::__doRequest($request, $location, $action, $version);

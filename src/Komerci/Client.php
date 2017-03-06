@@ -9,8 +9,8 @@ namespace Komerci;
  */
 class Client
 {
-    const WSDL_URL = 'https://ecommerce.redecard.com.br/pos_virtual/wskomerci/cap.asmx?WSDL';
-    const WSDL_TEST_URL = 'https://ecommerce.redecard.com.br/pos_virtual/wskomerci/cap_teste.asmx?WSDL';
+    const WSDL_URL = 'https://ecommerce.userede.com.br/pos_virtual/wskomerci/cap.asmx?WSDL';
+    const WSDL_TEST_URL = 'https://ecommerce.userede.com.br/pos_virtual/wskomerci/cap_teste.asmx?WSDL';
     
     /**
      * Make SOAP Request
