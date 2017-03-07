@@ -12,6 +12,9 @@ class Client
     const WSDL_URL = 'https://ecommerce.userede.com.br/pos_virtual/wskomerci/cap.asmx?WSDL';
     const WSDL_TEST_URL = 'https://ecommerce.userede.com.br/pos_virtual/wskomerci/cap_teste.asmx?WSDL';
     
+    private static $lastRequest = null;
+    private static $lastResponse = null;
+
     /**
      * Make SOAP Request
      * 
@@ -24,9 +27,7 @@ class Client
      */
     public static function SoapRequest($methodName, array $parameters, $isTest = false, $debug = false) {
         $soapClientParams = array();
-        if ($debug) {
-            $soapClientParams['trace'] = 1;
-        }
+        $soapClientParams['trace'] = 1;
         if ($isTest) {
             $wsdlUrl = static::WSDL_TEST_URL;
             $methodName .= 'Tst';
@@ -40,9 +41,20 @@ class Client
         }
         $resultNodeName = $methodName . 'Result';
         $xmlResult = $soapResult->$resultNodeName->any;
+        self::$lastRequest = $soapClient->__getLastRequest();
+        self::$lastResponse = $xmlResult;
         
         return $xmlResult;
     }
     
+    public static function getLastRequest()
+    {
+        return self::$lastRequest;
+    }
+
+    public static function getLastResponse()
+    {
+        return self::$lastResponse;
+    }
     
 }
