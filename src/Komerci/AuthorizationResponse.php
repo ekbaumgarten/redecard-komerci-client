@@ -433,6 +433,12 @@ class AuthorizationResponse
                 case 'ORIGEM_BIN':
                     $this->origemBin = (string) $childValue;
                     break;
+                case 'CONFCODRET':
+                    $this->confCodRet = (string) $childValue;
+                    break;
+                case 'CONFMSGRET':
+                    $this->confMsgRet = (string) $childValue;
+                    break;
             endswitch;
         }
     }
